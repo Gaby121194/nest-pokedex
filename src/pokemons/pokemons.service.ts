@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { isValidObjectId, Model } from 'mongoose';
+import { PaginationDto } from 'src/common/dtos/pagination.dto';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
 import { Pokemon } from './entities/pokemon.entity';
@@ -24,8 +25,14 @@ export class PokemonsService {
    
   }
 
-  findAll() {
-    return `This action returns all pokemons`;
+  findAll(paginationdto: PaginationDto) {
+    console.log({paginationdto})
+    const {offset= 0, limit= 10} = paginationdto
+    return this.pokemonModel.find()
+                            .skip(offset)
+                            .limit(limit)
+                            .sort({no: 1})
+                            .select('-__v');
   }
 
   async findOne(term: string) {
