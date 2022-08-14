@@ -19,3 +19,24 @@ npm i -g nest/cli
 ```
 docker-compose up -d
 ```
+
+
+5. Clonar el archivo ```.env.template``` y renombrar a archivo ```.env``` 
+
+
+6. Rellernar las variables de entorno con los valores indicados ```.env```
+
+7. Ejecutar la aplicacion en dev:
+```
+npm run star:dev
+``` 
+8. Reconstruir la base de datos con el url:
+```
+http://localhost:3000/api/v2/seed
+```
+
+# STACK USADO
+* MongoDB
+* Nest
+
+

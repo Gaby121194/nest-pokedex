@@ -17,6 +17,7 @@ async function bootstrap() {
     })
     );
     
-  await app.listen(3000);
+  await app.listen(process.env.PORT);
+  console.log(`Mi api esta corriendo en el puerto ${process.env.PORT}`)
 }
 bootstrap();
