@@ -34,9 +34,20 @@ npm run star:dev
 ```
 http://localhost:3000/api/v2/seed
 ```
-
+# Production Build
+1. Crear archivo ```.env.prod```
+2. Llenar las variables de entorno en el archivo
+3. Construir la imagen
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```
 # STACK USADO
 * MongoDB
 * Nest
 
-
+# Notas
+Si desea hacer un redeploy en heroku
+```
+git commit --allow-empty -m "Trigger heroku deploy"
+git push heroku <main/master>
+```
