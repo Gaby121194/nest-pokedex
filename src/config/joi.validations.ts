@@ -1,4 +1,3 @@
-import { isString } from 'class-validator'
 import * as Joi from 'joi'
 
 export const JoiValidationSchema = Joi.object({
